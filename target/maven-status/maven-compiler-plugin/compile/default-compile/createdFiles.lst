@@ -1,0 +1,9 @@
+persistencia\ProdutoDAO.class
+persistencia\PessoaDAO.class
+negocio\PessoaCtrl.class
+beans\Pessoa.class
+persistencia\HibernateUtil.class
+negocio\ProdutoCtrl.class
+persistencia\AbstractBaseDAO.class
+beans\Telefone.class
+beans\Produto.class

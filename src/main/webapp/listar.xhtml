@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<link rel="stylesheet" href="css/bootstrap.css"/>
+<script src="js/bootstrap.js"></script>
+</h:head>
+	<h:body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Brand</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="index.xhtml">Inicio</a></li>
+					<li><a href="form_produto.xhtml">Incluir</a></li>
+					<li class="active"><a href="listar.xhtml">Listar <span class="sr-only">(current)</span></a></li>
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+
+	<h:form>
+		<div align="center">
+			<h:commandLink value="Inserir" action="#{ProdutoCtrl.actionInserir}"/>
+			
+			<h:dataTable value="#{ProdutoCtrl.listar}" var="p">
+				<f:facet name="header"><h:outputLabel value="Lista de Produtos"/></f:facet>
+				<h:column>
+					<f:facet name="header"><h:outputLabel value="Código"/></f:facet>
+					<h:outputLabel value="#{p.idProduto}"/>
+				</h:column>
+				<h:column>
+					<f:facet name="header"><h:outputLabel value="Nome"/></f:facet>
+					<h:outputLabel value="#{p.nomeProduto}"/>
+				</h:column>
+				<h:column>
+					<f:facet name="header"><h:outputLabel value="Preço"/></f:facet>
+					<h:outputLabel value="#{p.precoProduto}"/>
+				</h:column>
+				<h:column>
+					<h:commandLink value="Alterar" action="#{ProdutoCtrl.actionAlterar(p)}"/>
+				</h:column>
+				<h:column>
+					<h:commandLink value="Excluir" action="#{ProdutoCtrl.actionExcluir(p)}">
+					</h:commandLink>
+				</h:column>
+			</h:dataTable>
+		</div>
+	</h:form>
+	
+
+</h:body>
+</html>

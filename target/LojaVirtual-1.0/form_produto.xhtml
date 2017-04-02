@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<link rel="stylesheet" href="css/bootstrap.css"/>
+<script src="js/bootstrap.js"></script>
+</h:head>
+<h:body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Brand</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="index.xhtml">Início</a></li>
+					<li class="active"><a href="form_produto.xhtml">Incluir <span class="sr-only">(current)</span></a></li>
+					<li><a href="listar.xhtml">Listar</a></li>
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<h:form>
+		<div align="center">
+			<h:panelGrid columns="2">
+				<f:facet name="header">
+					<h:outputLabel value="Cadastro de Produtos"/>
+				</f:facet>
+					<h:outputLabel value="Código"/>
+					<h:inputText readonly="true" value="#{ProdutoCtrl.produto.idProduto}"/>
+					<h:outputLabel value="Nome do produto"/>
+					<h:inputText value="#{ProdutoCtrl.produto.nomeProduto}"/>
+					<h:outputLabel value="Preço do produto"/>
+					<h:inputText value="#{ProdutoCtrl.produto.precoProduto}"/>
+			</h:panelGrid>
+			<h:commandButton value="Lista" action="listar"/>
+			<h:commandButton value="Gravar" action="#{ProdutoCtrl.actionGravar}"/>
+		</div>
+	</h:form>
+</h:body>
+</html>
